@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="messageForm">
+        <input type="text" name="name" id="name" />
+        <input type="text" name="message" id="message" />
+        <input type="submit" value="send" />
+    </form>
+    <div id="chat"></div>
+    <script type="module">
+        const chatEl = document.getElementById("chat");
+        
+        const ws = new WebSocket("ws://localhost:3000")
+        ws.onmessage = (message) => {
+
+        }
+        const send =  (event) => {
+            const nameInputEl = document.getElementById("name");
+            const messageInputEl = document.getElementById("message");
+            ws.send(JSON.stringify);
+        }
+        const formEl = document.getElementById("messageForm");
+        formEl.addEventListener("submit", send)
+    </script>
+    
+</body>
+</html>
