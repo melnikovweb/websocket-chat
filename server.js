@@ -4,8 +4,7 @@ import { writeFile, readFileSync, existsSync } from 'fs'
 
 const clients = {}
 const log = existsSync('log') && readFileSync('log')
-// const messages = JSON.parse(log) || []
-const messages = []
+const messages = JSON.parse(log) || []
 const wss = new WebSocketServer({ port: 9000 })
 wss.on('connection', ws => {
   const id = uuid()
